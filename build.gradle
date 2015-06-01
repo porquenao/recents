@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+    defaultConfig {
+        minSdkVersion 7
+    }
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'NOTICE'
+        exclude 'asm-license.txt'
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+    // Library
+    compile 'com.android.support:support-annotations:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+
+    // Test
+    androidTestCompile 'com.squareup.assertj:assertj-android:1.0.0'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+
+}

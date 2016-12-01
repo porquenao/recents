@@ -16,10 +16,10 @@ public class RecentsHelper {
     }
 
     /**
-     * Extracted from release android-5.1.1_r2
-     * https://android.googlesource.com/platform/frameworks/base/+/android-5.1.1_r2/packages/SystemUI/src/com/android/systemui/recents/misc/Utilities.java
+     * Extracted from release android-7.0.0_r21
+     * https://android.googlesource.com/platform/frameworks/base/+/android-7.0.0_r21/packages/SystemUI/src/com/android/systemui/recents/misc/Utilities.java
      *
-     * Calculates the constrast between two colors, using the algorithm provided by the WCAG v2.
+     * Calculates the contrast between two colors, using the algorithm provided by the WCAG v2.
      */
     private static float computeContrastBetweenColors(int bg, int fg) {
         float bgR = Color.red(bg) / 255f;
@@ -37,6 +37,7 @@ public class RecentsHelper {
         fgG = (fgG < 0.03928f) ? fgG / 12.92f : (float) Math.pow((fgG + 0.055f) / 1.055f, 2.4f);
         fgB = (fgB < 0.03928f) ? fgB / 12.92f : (float) Math.pow((fgB + 0.055f) / 1.055f, 2.4f);
         float fgL = 0.2126f * fgR + 0.7152f * fgG + 0.0722f * fgB;
+
         return Math.abs((fgL + 0.05f) / (bgL + 0.05f));
     }
 
